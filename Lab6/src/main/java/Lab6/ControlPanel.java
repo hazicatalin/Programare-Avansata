@@ -7,6 +7,7 @@ package Lab6;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -15,7 +16,7 @@ import javax.swing.*;
  *
  * @author Hazi Catalin
  */
-public class ControlPanel extends JFrame {
+public class ControlPanel extends JPanel {
     final MainFrame frame;
     JButton saveBtn = new JButton("Save");
     JButton loadBtn = new JButton("Load");
@@ -45,18 +46,20 @@ public class ControlPanel extends JFrame {
     }
     private void save(ActionEvent e) {
         try {
-            ImageIO.write(frame.canvas.image, "PNG", new File("d:/test.png"));
+            ImageIO.write(frame.canvas.image, "PNG", new File("G:/test.png"));
         } catch (IOException ex) { System.err.println(ex); }
     }
+    BufferedImage img = null;
     private void load(ActionEvent e) {
         try {
-            ImageIO.read(new File("d:/test.png"));
+            img = ImageIO.read(new File("G:/test.png"));
         } catch (IOException ex) { System.err.println(ex); }
     }
     private void reset(ActionEvent e) {
         try {
-            ImageIO.write(frame.canvas.image, "PNG", new File("d:/test.png"));
-        } catch (IOException ex) { System.err.println(ex); }
+            frame.canvas.graphics.setColor(Color.WHITE); //fill the image with white
+            frame.canvas.graphics.fillRect(0, 0, 800, 600);
+        } catch (Exception ex) { System.err.println(ex); }
     }
 
     private void exit(ActionEvent e) {

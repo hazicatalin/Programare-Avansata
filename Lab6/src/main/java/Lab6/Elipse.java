@@ -5,12 +5,14 @@
  */
 package Lab6;
 
+import java.awt.geom.Ellipse2D;
+
 /**
  *
  * @author Hazi Catalin
  */
-public class Main{
-    public static void main(String[] args){
-        new MainFrame().setVisible(true);
+public class Elipse extends Ellipse2D.Double {
+    public Elipse(double x0, double y0, double radius) {
+        super(x0 - radius / 2, y0 - radius / 2, 2*radius, radius);
     }
 }

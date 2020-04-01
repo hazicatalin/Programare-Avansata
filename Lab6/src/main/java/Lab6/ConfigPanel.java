@@ -11,12 +11,13 @@ import javax.swing.*;
  *
  * @author Hazi Catalin
  */
-public class ConfigPanel extends JFrame {
+public class ConfigPanel extends JPanel {
     final MainFrame frame;
     JLabel label; // we’re drawing regular polygons
     public JSpinner sidesField; // number of sides
     JComboBox colorCombo; // the color of the shape
     JLabel sidesLabel;
+    JComboBox shapeCombo;
 
     public ConfigPanel(MainFrame frame) {
         this.frame = frame;
@@ -29,11 +30,14 @@ public class ConfigPanel extends JFrame {
         sidesField.setValue(6); //default number of sides
         String[] x = {"Random", "Black"};
         colorCombo= new JComboBox(x);
+        String[] y = {"Regular Polygon", "Node Shape", "Elipse"};
+        shapeCombo = new JComboBox(y);
         //create the colorCombo, containing the values: Random and Black
  
         add(sidesLabel); //JPanel uses FlowLayout by default
         add(sidesField);
         add(colorCombo);
+        add(shapeCombo);
     }
 }
 
