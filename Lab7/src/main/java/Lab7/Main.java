@@ -11,6 +11,9 @@ package Lab7;
  */
 public class Main {
     public static void main(String[] args){
-        
+        String[] nume = {"Andrei", "Ana", "Denis", "Diana"};
+        int x=20;
+        Game joc;
+        joc = new Game(x, nume);
     }
 }

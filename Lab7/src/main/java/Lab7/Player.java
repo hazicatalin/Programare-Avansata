@@ -5,6 +5,10 @@
  */
 package Lab7;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Hazi Catalin
@@ -21,8 +25,12 @@ public class Player implements Runnable{
     }
     
     @Override
-    public void run() {
-        extractedToken = joc.board.extractToken(number); //To change body of generated methods, choose Tools | Templates.
-    } 
+    public synchronized void run() {
+       try{
+           Thread.sleep(1000);
+           extractedToken = joc.board.extractToken(number);
+           System.out.println(Thread.currentThread().getName() + extractedToken );
+       }catch(Exception ex){ System.err.println("Exception: " + ex);} 
+    }
     
 }

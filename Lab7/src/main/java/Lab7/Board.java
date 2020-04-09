@@ -18,8 +18,8 @@ public class Board {
     public Board(int numberOfTokens, Game aThis) {
         this.tokenNumber=numberOfTokens;
         this.joc=aThis;
-        for(int i = 1; i<= numberOfTokens; i++){
-            this.tokens[i]= new Token(i);
+        for(int i = 0; i< numberOfTokens; i++){
+            tokens[i]= new Token(i);
         }
     }
     

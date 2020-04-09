@@ -11,19 +11,19 @@ package Lab7;
  */
 public class Game {
     Board board;
-    private Player [] players;
-    private final int  numberOfTokens;
-    private int i=1;
+    private Runnable[] players = {new Player("Andrei", this), new Player("Andrei", this), new Player("Denis", this), new Player("Diana", this)};
+    private final int numberOfTokens;
+    private int numberOfPlayers=0;
     
     public Game(int number1, String ... playersName){
-        this.numberOfTokens=number1;
+        numberOfTokens=number1;
         for(String n : playersName) {   
-             this.players[i]= new Player(n, this);  
-             i++;
+             this.players[numberOfPlayers] = new Player(n, this);  
+             numberOfPlayers++;
          } 
         this.board=new Board(this.numberOfTokens, this);
-    }
-    
-    
-    
+        for(int i=0; i<numberOfPlayers; i++){
+            new Thread(players[i]).start();
+        }
+    }  
 }
