@@ -5,15 +5,29 @@
  */
 package DAO;
 
+import Lab8.Database;
+import java.sql.ResultSet;
+
 /**
  *
  * @author Hazi Catalin
  */
 public class ArtistController {
+    private Database db=new Database();
+    private String sql;
+    private ResultSet rs;
     
-    public void create(String name, String country){}
-    public int findByName(String name){
-        return 0;
+    public ArtistController(){}
+    
+    public ResultSet findByName(String name){
+        sql = "SELECT * FROM artists where name='"+name+"'";
+        rs=db.getArtist(sql);
+        return rs;
+    }
+    
+    public void create(String name, String country){
+        sql="insert into artists(name, country) values ("+name+", "+country+")";
+        db.addArtist(sql);
     }
     
 }
