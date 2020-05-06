@@ -35,7 +35,7 @@ public class ClientThread extends Thread {
                 String raspuns = "Server stopped";
                 out.println(raspuns);
                 out.flush();
-                break;
+                System.exit(0);
                 }
                 else{
                 String raspuns = "Server received the request ... " + request;
