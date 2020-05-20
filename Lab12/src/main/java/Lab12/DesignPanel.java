@@ -5,6 +5,7 @@
  */
 package Lab12;
 
+import java.awt.Dimension;
 import java.util.Random;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
@@ -16,11 +17,13 @@ import javax.swing.JPanel;
 public class DesignPanel extends JPanel{
     final MainFrame frame;
     Random rand = new Random();
-    int wd = this.getWidth();
-    int ht = this.getHeight();
+    int wd = 500;
+    int ht = 900;
     
     public DesignPanel(MainFrame frame) {
         this.frame = frame;
+        setPreferredSize(new Dimension(wd, ht));
+        setLayout(null);
     }
         
     public void addAtRandomLocation(JComponent comp) {

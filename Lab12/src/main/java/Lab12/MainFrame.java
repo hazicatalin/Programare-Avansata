@@ -29,10 +29,8 @@ public class MainFrame extends JFrame {
         //create the components
         designPanel = new DesignPanel(this);
         controlPanel= new ControlPanel(this);
- 
         add(controlPanel, BorderLayout.NORTH);
         add(designPanel, BorderLayout.CENTER);
-
         pack();
     }
 }
